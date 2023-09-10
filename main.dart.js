@@ -74185,7 +74185,7 @@ return A.Y($async$DD,r)},
 a8N(){A.v1(new A.n5("Top 30 Flutter Youtubers \n https://fluttuber-codex.web.app"))
 A.aqp($.bc(),"Copied to Clipboard","",B.i,B.n4,null,B.fh)}}
 A.Ii.prototype={
-J(a){return new A.vY("/","Flutter Top 30 Channels",A.ant(null,"MPLUSRounded",B.i5,null),!1,$.av7(),null)}}
+J(a){return new A.vY("/","qifendev",A.ant(null,"MPLUSRounded",B.i5,null),!1,$.av7(),null)}}
 A.IY.prototype={}
 A.K9.prototype={
 J(a){return new A.nC(new A.a6N(this),null)}}
