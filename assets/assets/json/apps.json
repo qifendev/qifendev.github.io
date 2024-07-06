@@ -2,7 +2,7 @@
   {
     "name": "IPTV Radio Player",
     "desc": "🔥🔥🔥 📺&📻  🔥🔥🔥\nIPTV Radio Player is an application that integrates TV and radio functions, providing users with TV channels and radio programs from all over the world. Users can conveniently watch TV programs and radio programs through this application, and learn about news, music, sports, entertainment, and other content from around the world anytime and anywhere.",
-    "icon": "https://qifendev.github.io/images/tv_radio.png",
+    "icon": "https://play-lh.googleusercontent.com/GUNpcvdnSGJ1EaoAZb5S1sxsi5LhtViF4PQ1vfLs7bDaZXJxXh0Jd_GLA8UwfFnQ-w=w480-h960-rw",
     "channel": [
         {
             "name": "Google Play",
@@ -19,7 +19,7 @@
 {
     "name": "Magic AI Chat Hybrid AI",
     "desc": "Magic AI is an app that brings together all the best AI",
-    "icon": "https://qifendev.github.io/images/magic.png",
+    "icon": "https://play-lh.googleusercontent.com/BF2MDhcDbI005bsuYYb7CMWomWJT9i6s1BLBafrzy5hN6kuaBldwy3A5TH1-PvBREwQ=w480-h960-rw",
     "channel": [
         {
             "name": "Google Play",
@@ -33,5 +33,4 @@
     "version": "",
     "code": 0
 }
-
 ]
