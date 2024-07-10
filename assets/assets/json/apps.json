@@ -8,6 +8,11 @@
             "name": "Google Play",
             "icon": "",
             "url": "https://play.google.com/store/apps/details?id=site.qifen.tv_radio"
+        },
+       {
+            "name": "Website",
+            "icon": "",
+            "url": "https://qifendev.github.io/app/tv/index.html"
         }
     ],
     "images": [
