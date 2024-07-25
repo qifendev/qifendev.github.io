@@ -37,5 +37,21 @@
     ],
     "version": "",
     "code": 0
+},{
+    "name": "Duck Wallpager - 4K&Rich",
+    "desc": "Dive into a world of stunning high-resolution wallpapers designed to bring your screens to life. Our app offers an extensive collection of 4K images, curated to suit every taste and preference. Whether you're looking for breathtaking landscapes, vibrant abstracts, or captivating cityscapes, Duck Wallpapper has it all.",
+    "icon": "https://play-lh.googleusercontent.com/O6Fq5MQcZD73BXiruguguYrMDA5KJ094GRT3Gs8UE7kFknJBeAwxKfTrI20FJe0wRg=w240-h480-rw",
+    "channel": [
+        {
+            "name": "Google Play",
+            "icon": "",
+            "url": "https://play.google.com/store/apps/details?id=site.qifen.duck"
+        }
+    ],
+    "images": [
+        
+    ],
+    "version": "",
+    "code": 0
 }
 ]
