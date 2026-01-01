@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reset Password</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 0 16px;
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    p {
+      color: red;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Reset Password</h2>
+
+  <input
+    id="password"
+    type="password"
+    placeholder="Enter new password"
+  />
+
+  <button onclick="resetPassword()">
+    Reset Password
+  </button>
+
+  <p id="message"></p>
+
+  <!-- Supabase JS SDK -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+  <script>
+    // ✅ Your Supabase config
+    const supabaseUrl = "https://ztvcgbjwgxlhhnazbvyy.supabase.co";
+    const supabaseAnonKey =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0dmNnYmp3Z3hsaGhuYXpidnl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3Nzg4MDcsImV4cCI6MjA3ODM1NDgwN30.Crrau4eNFHodcnK-sYUFL3iPEBu8SUpZy6jtxl43GCg";
+
+    const supabase = supabase.createClient(
+      supabaseUrl,
+      supabaseAnonKey
+    );
+
+    async function resetPassword() {
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+      message.innerText = "";
+
+      if (password.length < 8) {
+        message.innerText = "Password must be at least 8 characters.";
+        return;
+      }
+
+      const { error } = await supabase.auth.updateUser({
+        password: password
+      });
+
+      if (error) {
+        message.innerText = error.message;
+      } else {
+        alert("Password reset successful. Please log in again.");
+        await supabase.auth.signOut();
+        // Optional redirect after success
+        // window.location.href = "/login";
+      }
+    }
+  </script>
+
+</body>
+</html>
