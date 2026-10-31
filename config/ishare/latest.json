@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-10-29.2",
-  "updatedAt": "2026-10-29T00:00:00Z",
+  "configVersion": "2026-10-31.1",
+  "updatedAt": "2026-10-31T00:00:00Z",
   "minClientVersion": "",
   "rolloutPercent": 100,
   "ads": {
@@ -11,7 +11,7 @@
     "appOpen": {
       "enabled": true,
       "firstLaunchSkip": 0,
-      "cooldownSeconds": 60,
+      "cooldownSeconds": 600,
       "dailyLimit": 20
     },
     "banner": {
