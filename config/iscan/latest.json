@@ -22,7 +22,7 @@
       "enabled": true,
       "intervalActions": 1,
       "dailyLimit": 30,
-      "cooldownSeconds": 30
+      "cooldownSeconds": 600
     },
     "reward": {
       "enabled": true
