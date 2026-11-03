@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-11-02.1",
-  "updatedAt": "2026-11-02T00:00:00Z",
+  "configVersion": "2026-11-03.1",
+  "updatedAt": "2026-11-03T00:00:00Z",
   "minClientVersion": "",
   "rolloutPercent": 100,
   "ads": {
@@ -22,7 +22,8 @@
       "enabled": true,
       "intervalActions": 1,
       "dailyLimit": 30,
-      "cooldownSeconds": 600
+      "cooldownSeconds": 600,
+      "initialDelaySeconds": 30
     },
     "reward": {
       "enabled": true
