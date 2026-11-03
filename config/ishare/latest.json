@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-10-31.1",
-  "updatedAt": "2026-10-31T00:00:00Z",
+  "configVersion": "2026-11-02.1",
+  "updatedAt": "2026-11-02T00:00:00Z",
   "minClientVersion": "",
   "rolloutPercent": 100,
   "ads": {
@@ -11,7 +11,7 @@
     "appOpen": {
       "enabled": true,
       "firstLaunchSkip": 0,
-      "cooldownSeconds": 600,
+      "cooldownSeconds": 0,
       "dailyLimit": 20
     },
     "banner": {
@@ -113,6 +113,35 @@
       "zh": "我们正在升级服务，请稍后再试。",
       "zh_Hant": "我們正在升級服務，請稍後再試。",
       "en": "We are upgrading the service. Please try again later."
+    }
+  },
+  "rating": {
+    "enabled": true,
+    "minLaunches": 5,
+    "minDaysSinceInstall": 3,
+    "cooldownDays": 90,
+    "maxPrompts": 2,
+    "delaySeconds": 3,
+    "inAppReview": true,
+    "title": {
+      "zh": "喜欢 {app} 吗？",
+      "zh_Hant": "喜歡 {app} 嗎？",
+      "en": "Enjoying {app}?"
+    },
+    "body": {
+      "zh": "如果它帮到了你，去商店给个好评，这是我们继续改进的动力。",
+      "zh_Hant": "如果它幫到了你，去商店給個好評，這是我們繼續改進的動力。",
+      "en": "If it has been useful, a quick review on the store helps us a lot."
+    },
+    "rateLabel": {
+      "zh": "去评分",
+      "zh_Hant": "去評分",
+      "en": "Rate now"
+    },
+    "laterLabel": {
+      "zh": "以后再说",
+      "zh_Hant": "以後再說",
+      "en": "Not now"
     }
   },
   "features": {},
