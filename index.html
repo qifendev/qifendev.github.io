@@ -604,16 +604,16 @@
 
 /* planned apps: no store links yet -> Coming soon card */
     const PLANNED = [
-      { id: 'idevice', name: 'iDevice', c1: '#20BFA9', c2: '#0E8C7C' },
-      { id: 'izip', name: 'iZip', c1: '#F5A524', c2: '#E0662B' },
-      { id: 'idoc', name: 'iDoc', c1: '#3B82F6', c2: '#1D4ED8' },
-      { id: 'ibook', name: 'iBook', c1: '#A855F7', c2: '#6D28D9' },
-      { id: 'inote', name: 'iNote', c1: '#FBBF24', c2: '#F97316' },
-      { id: 'icamera', name: 'iCamera', c1: '#EC4899', c2: '#BE185D' },
-      { id: 'irecord', name: 'iRecord', c1: '#EF4444', c2: '#B91C1C' },
-      { id: 'imedia', name: 'iMedia', c1: '#8B5CF6', c2: '#4F46E5' },
-      { id: 'ispeed', name: 'iSpeed', c1: '#22C55E', c2: '#15803D' },
-      { id: 'icast', name: 'iCast', c1: '#06B6D4', c2: '#0E7490' }
+      { id: 'idevice', name: 'iDevice', c1: '#20BFA9', c2: '#0E8C7C', icon: 'images/idevice.png' },
+      { id: 'izip', name: 'iZip', c1: '#F5A524', c2: '#E0662B', icon: 'images/izip.png' },
+      { id: 'idoc', name: 'iDoc', c1: '#3B82F6', c2: '#1D4ED8', icon: 'images/idoc.png' },
+      { id: 'ibook', name: 'iBook', c1: '#A855F7', c2: '#6D28D9', icon: 'images/ibook.png' },
+      { id: 'inote', name: 'iNote', c1: '#FACC15', c2: '#F97316', icon: 'images/inote.png' },
+      { id: 'icamera', name: 'iCamera', c1: '#EC4899', c2: '#BE185D', icon: 'images/icamera.png' },
+      { id: 'irecord', name: 'iRecord', c1: '#EF4444', c2: '#B91C1C', icon: 'images/irecord.png' },
+      { id: 'imedia', name: 'iMedia', c1: '#6366F1', c2: '#4F46E5', icon: 'images/imedia.png' },
+      { id: 'ispeed', name: 'iSpeed', c1: '#22C55E', c2: '#15803D', icon: 'images/ispeed.png' },
+      { id: 'icast', name: 'iCast', c1: '#06B6D4', c2: '#0E7490', icon: 'images/icast.png' }
     ];
 
     const GP_BADGE = "<svg viewBox='0 0 24 24'><path fill='#1FC8FF' d='M4 4 L4 9.3 L21 12 Z'/><path fill='#00D26A' d='M4 9.3 L4 14.7 L21 12 Z'/><path fill='#FFC93C' d='M4 14.7 L4 20 L21 12 Z'/><path fill='#FF3B30' d='M21 12 L16.5 9.6 L16.5 14.4 Z'/><path fill='#fff' d='M5 5.2 L5 11.4 L11.5 12 Z' opacity='.25'/></svg>";
@@ -694,8 +694,11 @@
       const pSoon = d.plannedSoon || I18N.en.plannedSoon;
       document.getElementById("plannedGrid").innerHTML = PLANNED.map(function (a) {
         const info = pd[a.id] || I18N.en.planned[a.id];
+        const iconHtml = a.icon
+          ? "<img src='" + a.icon + "' alt='" + a.name + " app icon' loading='lazy' />"
+          : GLYPH[a.id];
         return "<div class='app-card planned reveal' style='--c1:" + a.c1 + ";--c2:" + a.c2 + "'>" +
-          "<div class='app-top'><div class='app-icon glyph'>" + GLYPH[a.id] + "</div>" +
+          "<div class='app-top'><div class='app-icon" + (a.icon ? "" : " glyph") + "'>" + iconHtml + "</div>" +
           "<div><div class='app-name'>" + a.name + "</div><div class='app-tag'>" + info.tag + "</div></div></div>" +
           "<div class='app-desc'>" + info.desc + "</div>" +
           "<div class='stores'>" + badgeSoon(pSoon) + "</div></div>";
