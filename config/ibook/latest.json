@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-11-06.1",
+  "updatedAt": "2026-11-06T00:00:00Z",
+  "minClientVersion": "",
+  "rolloutPercent": 100,
+  "ads": {
+    "enabled": false,
+    "removeAds": false,
+    "unitIds": {},
+    "appOpen": {
+      "enabled": false,
+      "firstLaunchSkip": 0,
+      "cooldownSeconds": 0,
+      "dailyLimit": 20
+    },
+    "banner": {
+      "enabled": false,
+      "delayLaunches": 0
+    },
+    "interstitial": {
+      "enabled": false,
+      "intervalActions": 1,
+      "dailyLimit": 30,
+      "cooldownSeconds": 600
+    },
+    "reward": {
+      "enabled": true
+    },
+    "native": {
+      "enabled": false
+    },
+    "regionBlock": []
+  },
+  "messages": [
+    {
+      "id": "example_announcement",
+      "type": "announcement",
+      "enabled": false,
+      "priority": 10,
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "locales": [],
+      "frequency": "once",
+      "dismissible": true,
+      "dismissOnBarrier": true,
+      "title": {
+        "zh": "示例公告",
+        "zh_Hant": "示例公告",
+        "en": "Example announcement"
+      },
+      "body": {
+        "zh": "这是一条示例公告，默认关闭。",
+        "zh_Hant": "這是一條示例公告，預設關閉。",
+        "en": "This is an example announcement, disabled by default."
+      },
+      "buttons": [
+        {
+          "text": {
+            "zh": "了解详情",
+            "zh_Hant": "了解詳情",
+            "en": "Learn more"
+          },
+          "action": "webview",
+          "url": "https://qifendev.github.io/",
+          "style": "primary"
+        },
+        {
+          "text": {
+            "zh": "关闭",
+            "zh_Hant": "關閉",
+            "en": "Close"
+          },
+          "action": "close",
+          "style": "secondary"
+        }
+      ]
+    }
+  ],
+  "update": {
+    "minSupportedVersion": {
+      "ios": "1.0.0",
+      "android": "1.0.0"
+    },
+    "recommendedVersion": null,
+    "force": false,
+    "url": {
+      "ios": "https://apps.apple.com/app/id1635770879",
+      "android": "https://play.google.com/store/apps/details?id=site.qifen.fast_share"
+    },
+    "title": {
+      "zh": "发现新版本",
+      "zh_Hant": "發現新版本",
+      "en": "Update available"
+    },
+    "body": {
+      "zh": "新版本带来更好的体验。",
+      "zh_Hant": "新版本帶來更好的體驗。",
+      "en": "A new version brings a better experience."
+    },
+    "remindLaterHours": 24
+  },
+  "maintenance": {
+    "enabled": false,
+    "title": {
+      "zh": "服务维护中",
+      "zh_Hant": "服務維護中",
+      "en": "Under maintenance"
+    },
+    "body": {
+      "zh": "我们正在升级服务，请稍后再试。",
+      "zh_Hant": "我們正在升級服務，請稍後再試。",
+      "en": "We are upgrading the service. Please try again later."
+    }
+  },
+  "rating": {
+    "enabled": false,
+    "minLaunches": 5,
+    "minDaysSinceInstall": 3,
+    "cooldownDays": 90,
+    "maxPrompts": 2,
+    "delaySeconds": 3,
+    "inAppReview": true,
+    "title": {
+      "zh": "喜欢 {app} 吗？",
+      "zh_Hant": "喜歡 {app} 嗎？",
+      "en": "Enjoying {app}?"
+    },
+    "body": {
+      "zh": "如果它帮到了你，去商店给个好评，这是我们继续改进的动力。",
+      "zh_Hant": "如果它幫到了你，去商店給個好評，這是我們繼續改進的動力。",
+      "en": "If it has been useful, a quick review on the store helps us a lot."
+    },
+    "rateLabel": {
+      "zh": "去评分",
+      "zh_Hant": "去評分",
+      "en": "Rate now"
+    },
+    "laterLabel": {
+      "zh": "以后再说",
+      "zh_Hant": "以後再說",
+      "en": "Not now"
+    }
+  },
+  "features": {},
+  "forceLocale": null,
+  "forceTheme": null,
+  "shareText": {},
+  "supportEmail": "qifendev@gmail.com",
+  "supportUrl": "https://qifendev.github.io/",
+  "privacyUrl": "https://qifendev.github.io/privacy/ishare_privacy.html",
+  "termsUrl": "https://qifendev.github.io/privacy/ishare_terms.html",
+  "analyticsEnabled": true,
+  "crashReportEnabled": true
+}

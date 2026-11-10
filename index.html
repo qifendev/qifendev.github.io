@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>qifen — Apps</title>
-  <meta name="description" content="Independent apps by qifen — iShare, iDownload, iScan and iPlayer. Simple, beautiful tools for sharing, downloading, scanning and streaming." />
+  <meta name="description" content="Independent apps by qifen — iShare, iDownload, iScan and iPlayer, plus ten local-first tools in the works. Simple, private, beautifully made." />
   <meta property="og:title" content="qifen — Apps" />
   <meta property="og:description" content="Simple, beautiful apps for everyday life." />
   <meta property="og:type" content="website" />
@@ -202,6 +202,19 @@
     .badge.soon { background: transparent; border-style: dashed; color: var(--muted); cursor: default; }
     .badge.soon:hover { transform: none; border-color: var(--border); background: transparent; }
 
+    /* ---------- planned apps (Coming soon) ---------- */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .app-card.planned { padding: 22px; }
+    .app-card.planned .app-name { font-size: 1.12rem; }
+    .app-card.planned .app-desc { font-size: .9rem; min-height: 58px; }
+    .app-icon.glyph {
+      background: linear-gradient(140deg, var(--c1), var(--c2));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .app-icon.glyph svg { width: 30px; height: 30px; color: #fff; }
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .grid-3 { grid-template-columns: 1fr; } }
+
     /* ---------- connect ---------- */
     .connect { padding-top: 64px; padding-bottom: 30px; }
     .socials { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
@@ -303,6 +316,14 @@
     <div class="grid" id="appsGrid"></div>
   </section>
 
+  <section class="sec wrap" id="planned">
+    <div class="sec-head reveal">
+      <h2 data-i18n="plannedTitle">In the works</h2>
+      <p data-i18n="plannedSub">Ten more local-first tools on the way. No accounts, no cloud required (unless you opt in).</p>
+    </div>
+    <div class="grid-3" id="plannedGrid"></div>
+  </section>
+
   <section class="connect wrap">
     <div class="sec-head reveal">
       <h2 data-i18n="connectTitle">Stay in touch</h2>
@@ -341,6 +362,19 @@
         connectTitle: "Stay in touch", connectSub: "Follow the studio and reach out any time.",
         soon: "Coming soon to App Store",
         footer: "© 2026 qifen · Made with care",
+        plannedTitle: "In the works", plannedSub: "Ten more local-first tools on the way. No accounts, no cloud required (unless you opt in).", plannedSoon: "In development",
+        planned: {
+          idevice: { tag: "Know your device", desc: "Model, hardware, battery, network and sensors — plus every device identifier, ready to copy." },
+          izip: { tag: "Zip & unzip", desc: "Create and extract ZIP, TAR, GZip, BZip2, XZ and zstd archives, with passwords and safe extraction." },
+          idoc: { tag: "Documents, your way", desc: "View and edit spreadsheets, CSV, Markdown and PDF; open DOCX and PPTX in one tidy workspace." },
+          ibook: { tag: "Your bookshelf", desc: "A calm local reader for EPUB, TXT, Markdown and PDF, with bookmarks, notes and full-text search." },
+          inote: { tag: "Notes that travel", desc: "Fast rich-text notes with tags and search, optionally synced across devices with an anonymous device ID." },
+          icamera: { tag: "Capture & refine", desc: "A focused camera and photo timeline with EXIF details, crop, rotate and filters — all on device." },
+          irecord: { tag: "Record & replay", desc: "Clean voice recording with a live waveform, markers and playback speed, plus searchable notes." },
+          imedia: { tag: "Edit anything", desc: "FFmpeg-powered trim, merge, convert and compress for video and audio, plus image tools and a task queue." },
+          ispeed: { tag: "Measure your network", desc: "Download, upload, latency and jitter with history charts, plus Wi-Fi and connection details." },
+          icast: { tag: "Cast to the big screen", desc: "Find nearby TVs and speakers over DLNA or Chromecast, then control playback from your phone." },
+        },
         apps: {
           ishare: { tag: "Share across devices", desc: "Send files, photos and links to nearby devices over your local network — fast, private, and no account required.", note: "Listed on Google Play as “Nearby Share”." },
           idownload: { tag: "Download & share", desc: "A fast download manager with built-in LAN sharing. Grab files from the web and pass them to any device in seconds." },
@@ -358,6 +392,19 @@
         connectTitle: "保持联系", connectSub: "关注工作室，随时与我们交流。",
         soon: "App Store 即将上线",
         footer: "© 2026 qifen · 用心打造",
+        plannedTitle: "正在打磨", plannedSub: "十款新的本地工具正在路上。无需账号，数据留在设备里；云同步由你选择。", plannedSoon: "开发中",
+        planned: {
+          idevice: { tag: "读懂你的设备", desc: "型号、硬件、电池、网络与传感器一目了然，还能集中查看并复制各类设备 ID。" },
+          izip: { tag: "压缩与解压", desc: "创建与解压 ZIP、TAR、GZip、BZip2、XZ、zstd，支持密码保护与安全解压。" },
+          idoc: { tag: "文档，随心处理", desc: "查看并编辑表格、CSV、Markdown 与 PDF，DOCX / PPTX 也能在一个清爽的工作台里打开。" },
+          ibook: { tag: "你的书架", desc: "安静的本地阅读器，支持 EPUB、TXT、Markdown 与 PDF，含书签、笔记与全文搜索。" },
+          inote: { tag: "笔记跟着你走", desc: "快手富文本笔记，标签与全文搜索齐全；可选匿名设备 ID 同步到云端。" },
+          icamera: { tag: "拍摄与微调", desc: "专注的相机与照片时间线，带 EXIF 信息、裁剪、旋转与滤镜，全部留在本机。" },
+          irecord: { tag: "录下，再回放", desc: "干净的录音体验：实时波形、标记、倍速播放与可搜索的笔记。" },
+          imedia: { tag: "什么都能剪", desc: "基于 FFmpeg 的音视频裁剪、合并、转码、压缩，加上图片工具与任务队列。" },
+          ispeed: { tag: "给网络做个测量", desc: "下载、上传、延迟与抖动，配历史曲线，以及 Wi-Fi 与连接详情。" },
+          icast: { tag: "投到大屏幕", desc: "通过 DLNA 或 Chromecast 找到附近的电视与音箱，用手机控制播放。" },
+        },
         apps: {
           ishare: { tag: "跨设备分享", desc: "通过局域网把文件、照片和链接发送到附近的设备——快速、私密，无需注册账号。", note: "在 Google Play 上名为「Nearby Share」。" },
           idownload: { tag: "下载与分享", desc: "速度快的下载管理器，内置局域网分享。从网页抓取文件，几秒内传到任意设备。" },
@@ -375,6 +422,19 @@
         connectTitle: "保持聯繫", connectSub: "關注工作室，隨時與我們交流。",
         soon: "App Store 即將上線",
         footer: "© 2026 qifen · 用心打造",
+        plannedTitle: "正在打磨", plannedSub: "十款新的本地工具正在路上。無須帳號，資料留在裝置裡；雲端同步由你選擇。", plannedSoon: "開發中",
+        planned: {
+          idevice: { tag: "讀懂你的裝置", desc: "型號、硬體、電池、網路與感測器一目瞭然，還能集中檢視並複製各類裝置 ID。" },
+          izip: { tag: "壓縮與解壓", desc: "建立與解壓 ZIP、TAR、GZip、BZip2、XZ、zstd，支援密碼保護與安全解壓。" },
+          idoc: { tag: "文件，隨心處理", desc: "檢視並編輯試算表、CSV、Markdown 與 PDF，DOCX / PPTX 也能在清爽的工作台開啟。" },
+          ibook: { tag: "你的書架", desc: "安靜的本機閱讀器，支援 EPUB、TXT、Markdown 與 PDF，含書籤、筆記與全文搜尋。" },
+          inote: { tag: "筆記跟著你走", desc: "快手富文字筆記，標籤與全文搜尋齊全；可選匿名裝置 ID 同步到雲端。" },
+          icamera: { tag: "拍攝與微調", desc: "專注的相機與照片時間軸，帶 EXIF 資訊、裁切、旋轉與濾鏡，全部留在本機。" },
+          irecord: { tag: "錄下，再回放", desc: "乾淨的錄音體驗：即時波形、標記、倍速播放與可搜尋的筆記。" },
+          imedia: { tag: "什麼都能剪", desc: "基於 FFmpeg 的影音裁切、合併、轉碼、壓縮，加上圖片工具與任務佇列。" },
+          ispeed: { tag: "給網路量一量", desc: "下載、上傳、延遲與抖動，搭配歷史曲線，以及 Wi-Fi 與連線資訊。" },
+          icast: { tag: "投到大螢幕", desc: "透過 DLNA 或 Chromecast 找到附近的電視與喇叭，用手機控制播放。" },
+        },
         apps: {
           ishare: { tag: "跨裝置分享", desc: "透過區域網路把檔案、照片與連結傳送到附近的裝置——快速、私密，無須註冊帳號。", note: "在 Google Play 上名為「Nearby Share」。" },
           idownload: { tag: "下載與分享", desc: "速度飛快的下載管理器，內建區域網路分享。從網頁抓取檔案，幾秒內傳到任意裝置。" },
@@ -392,6 +452,7 @@
         connectTitle: "Mantente en contacto", connectSub: "Sigue al estudio y escríbenos cuando quieras.",
         soon: "Próximamente en App Store",
         footer: "© 2026 qifen · Hecho con cariño",
+        plannedTitle: "En preparación", plannedSub: "Diez herramientas locales más en camino. Sin cuentas, sin nube obligatoria.", plannedSoon: "En desarrollo",
         apps: {
           ishare: { tag: "Comparte entre dispositivos", desc: "Envía archivos, fotos y enlaces a dispositivos cercanos por tu red local: rápido, privado y sin cuenta.", note: "En Google Play se llama «Nearby Share»." },
           idownload: { tag: "Descarga y comparte", desc: "Un gestor de descargas rápido con compartición en LAN integrada. Obtén archivos de la web y pásalos a cualquier dispositivo en segundos." },
@@ -409,6 +470,7 @@
         connectTitle: "Restons en contact", connectSub: "Suivez le studio et contactez-nous à tout moment.",
         soon: "Bientôt sur l'App Store",
         footer: "© 2026 qifen · Fait avec soin",
+        plannedTitle: "En préparation", plannedSub: "Dix nouveaux outils locaux arrivent. Sans compte, sans cloud obligatoire.", plannedSoon: "En développement",
         apps: {
           ishare: { tag: "Partagez entre appareils", desc: "Envoyez fichiers, photos et liens à des appareils proches via votre réseau local : rapide, privé et sans compte.", note: "Sur Google Play, elle s'appelle « Nearby Share »." },
           idownload: { tag: "Téléchargez et partagez", desc: "Un gestionnaire de téléchargement rapide avec partage LAN intégré. Récupérez des fichiers du web et transmettez-les à n'importe quel appareil en quelques secondes." },
@@ -426,6 +488,7 @@
         connectTitle: "Bleib in Kontakt", connectSub: "Folge dem Studio und schreib uns jederzeit.",
         soon: "Bald im App Store",
         footer: "© 2026 qifen · Mit Sorgfalt gemacht",
+        plannedTitle: "In Arbeit", plannedSub: "Zehn weitere lokale Tools in Vorbereitung. Ohne Konto, ohne Cloud-Pflicht.", plannedSoon: "In Entwicklung",
         apps: {
           ishare: { tag: "Geräteübergreifend teilen", desc: "Sende Dateien, Fotos und Links über dein lokales Netzwerk an nahe Geräte — schnell, privat und ohne Konto.", note: "Bei Google Play heißt sie „Nearby Share“." },
           idownload: { tag: "Herunterladen & teilen", desc: "Ein schneller Download-Manager mit integriertem LAN-Sharing. Hol dir Dateien aus dem Web und gib sie in Sekunden an jedes Gerät weiter." },
@@ -443,6 +506,7 @@
         connectTitle: "つながりを", connectSub: "スタジオをフォローし、いつでもご連絡を。",
         soon: "App Store 近日公開",
         footer: "© 2026 qifen · 丁寧に作りました",
+        plannedTitle: "準備中", plannedSub: "ローカル完結のツールをさらに10本準備中。アカウント不要、クラウドは任意。", plannedSoon: "開発中",
         apps: {
           ishare: { tag: "デバイス間で共有", desc: "ローカルネットワーク経由で、近くのデバイスにファイルや写真、リンクを送信。高速でプライベート、アカウント不要。", note: "Google Play では「Nearby Share」という名前です。" },
           idownload: { tag: "ダウンロードと共有", desc: "高速なダウンロード管理に LAN 共有を内蔵。ウェブからファイルを取得し、数秒でどのデバイスへでも渡せます。" },
@@ -460,6 +524,7 @@
         connectTitle: "연락하기", connectSub: "스튜디오를 팔로우하고 언제든 연락주세요.",
         soon: "App Store 곧 출시",
         footer: "© 2026 qifen · 정성껏 만들었습니다",
+        plannedTitle: "준비 중", plannedSub: "로컬 중심 도구 10종을 준비 중입니다. 계정 없이, 클라우드는 선택 사항.", plannedSoon: "개발 중",
         apps: {
           ishare: { tag: "기기 간 공유", desc: "로컬 네트워크로 근처 기기에 파일·사진·링크를 전송하세요. 빠르고 프라이빗하며, 계정이 필요 없습니다.", note: "Google Play에서는 «Nearby Share»라는 이름입니다." },
           idownload: { tag: "다운로드 & 공유", desc: "빠른 다운로드 관리에 LAN 공유를 내장했습니다. 웹에서 파일을 받아 몇 초 만에 어떤 기기로든 보낼 수 있습니다." },
@@ -477,6 +542,7 @@
         connectTitle: "Fique por perto", connectSub: "Siga o estudio e fale conosco quando quiser.",
         soon: "Em breve na App Store",
         footer: "© 2026 qifen · Feito com capricho",
+        plannedTitle: "Em preparação", plannedSub: "Mais dez ferramentas locais a caminho. Sem contas, sem nuvem obrigatória.", plannedSoon: "Em desenvolvimento",
         apps: {
           ishare: { tag: "Compartilhe entre dispositivos", desc: "Envie arquivos, fotos e links para dispositivos próximos pela sua rede local: rápido, privado e sem conta.", note: "No Google Play chama-se «Nearby Share»." },
           idownload: { tag: "Baixe e compartilhe", desc: "Um gerenciador de downloads rápido com compartilhamento LAN integrado. Pegue arquivos da web e passe para qualquer dispositivo em segundos." },
@@ -494,6 +560,7 @@
         connectTitle: "Оставайтесь на связи", connectSub: "Подпишитесь на студию и пишите нам в любое время.",
         soon: "Скоро в App Store",
         footer: "© 2026 qifen · Сделано с заботой",
+        plannedTitle: "В работе", plannedSub: "Ещё десять локальных инструментов. Без аккаунтов и обязательного облака.", plannedSoon: "В разработке",
         apps: {
           ishare: { tag: "Обмен между устройствами", desc: "Отправляйте файлы, фото и ссылки на близкие устройства по локальной сети — быстро, приватно и без аккаунта.", note: "В Google Play называется «Nearby Share»." },
           idownload: { tag: "Загрузка и обмен", desc: "Быстрый менеджер загрузок со встроенным обменом по LAN. Берите файлы из сети и передавайте на любое устройство за секунды." },
@@ -522,8 +589,32 @@
       ishare: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='18' cy='5' r='3'/><circle cx='6' cy='12' r='3'/><circle cx='18' cy='19' r='3'/><path d='M8.6 13.5l6.8 4M15.4 6.5l-6.8 4'/></svg>",
       idownload: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3v12m0 0l-4-4m4 4l4-4'/><path d='M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2'/></svg>",
       iscan: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3'/><path d='M4 12h16'/></svg>",
-      iplayer: "<svg viewBox='0 0 24 24' fill='currentColor'><path d='M8 5v14l11-7z'/></svg>"
+      iplayer: "<svg viewBox='0 0 24 24' fill='currentColor'><path d='M8 5v14l11-7z'/></svg>",
+      idevice: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='6' y='2' width='12' height='20' rx='2'/><path d='M11 18h2'/><circle cx='12' cy='8' r='1'/><path d='M12 11v3'/></svg>",
+      izip: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 3h14v18H5z'/><path d='M11 3v3h2V3m-2 3v3h2V6m-2 3v3h2V9m-2 3v3h2v-3'/></svg>",
+      idoc: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z'/><path d='M14 2v6h6M8 13h8M8 17h5'/></svg>",
+      ibook: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 6c-2-1.5-5-2-9-2v14c4 0 7 .5 9 2 2-1.5 5-2 9-2V4c-4 0-7 .5-9 2z'/><path d='M12 6v14'/></svg>",
+      inote: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4h16v12l-4 4H4z'/><path d='M20 16h-4v4M8 9h8M8 13h5'/></svg>",
+      icamera: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 8h3l2-3h8l2 3h3v12H3z'/><circle cx='12' cy='14' r='4'/></svg>",
+      irecord: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='9' y='2' width='6' height='12' rx='3'/><path d='M5 11a7 7 0 0014 0M12 18v4M8 22h8'/></svg>",
+      imedia: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='5' width='20' height='14' rx='2'/><path d='M2 9h20M7 5v4M17 5v4M10 12l5 3-5 3z'/></svg>",
+      ispeed: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 18a9 9 0 1116 0'/><path d='M12 14l4-4'/><circle cx='12' cy='18' r='1.5'/></svg>",
+      icast: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='13' rx='2'/><path d='M8 21h8M12 17v4'/><path d='M8 11a5 5 0 018 0M11 13.5a1.5 1.5 0 012 0'/></svg>",
     };
+
+/* planned apps: no store links yet -> Coming soon card */
+    const PLANNED = [
+      { id: 'idevice', name: 'iDevice', c1: '#20BFA9', c2: '#0E8C7C', icon: 'images/idevice.png' },
+      { id: 'izip', name: 'iZip', c1: '#F5A524', c2: '#E0662B', icon: 'images/izip.png' },
+      { id: 'idoc', name: 'iDoc', c1: '#3B82F6', c2: '#1D4ED8', icon: 'images/idoc.png' },
+      { id: 'ibook', name: 'iBook', c1: '#A855F7', c2: '#6D28D9', icon: 'images/ibook.png' },
+      { id: 'inote', name: 'iNote', c1: '#FACC15', c2: '#F97316', icon: 'images/inote.png' },
+      { id: 'icamera', name: 'iCamera', c1: '#EC4899', c2: '#BE185D', icon: 'images/icamera.png' },
+      { id: 'irecord', name: 'iRecord', c1: '#EF4444', c2: '#B91C1C', icon: 'images/irecord.png' },
+      { id: 'imedia', name: 'iMedia', c1: '#6366F1', c2: '#4F46E5', icon: 'images/imedia.png' },
+      { id: 'ispeed', name: 'iSpeed', c1: '#22C55E', c2: '#15803D', icon: 'images/ispeed.png' },
+      { id: 'icast', name: 'iCast', c1: '#06B6D4', c2: '#0E7490', icon: 'images/icast.png' }
+    ];
 
     const GP_BADGE = "<svg viewBox='0 0 24 24'><path fill='#1FC8FF' d='M4 4 L4 9.3 L21 12 Z'/><path fill='#00D26A' d='M4 9.3 L4 14.7 L21 12 Z'/><path fill='#FFC93C' d='M4 14.7 L4 20 L21 12 Z'/><path fill='#FF3B30' d='M21 12 L16.5 9.6 L16.5 14.4 Z'/><path fill='#fff' d='M5 5.2 L5 11.4 L11.5 12 Z' opacity='.25'/></svg>";
     const AS_BADGE = "<svg viewBox='0 0 24 24' fill='#fff'><path d='M16.4 12.7c0-2 1.6-3 1.7-3-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .7 1 1.4 2 2.5 2 1 0 1.3-.6 2.5-.6 1.2 0 1.5.6 2.5.6 1 0 1.7-1 2.4-2 .7-1.1 1-2.2 1-2.3-.1 0-2-.8-2-3.1zM14.5 6.3c.5-.7.9-1.6.8-2.5-.8 0-1.8.6-2.4 1.3-.5.6-1 1.5-.8 2.4.9.1 1.8-.5 2.4-1.2z'/></svg>";
@@ -597,6 +688,21 @@
       document.querySelectorAll(".lang-opt").forEach(function (el) {
         el.classList.toggle("active", el.getAttribute("data-lang") === lang);
       });
+
+      // planned apps: Coming soon cards, no fake store links
+      const pd = d.planned || I18N.en.planned;
+      const pSoon = d.plannedSoon || I18N.en.plannedSoon;
+      document.getElementById("plannedGrid").innerHTML = PLANNED.map(function (a) {
+        const info = pd[a.id] || I18N.en.planned[a.id];
+        const iconHtml = a.icon
+          ? "<img src='" + a.icon + "' alt='" + a.name + " app icon' loading='lazy' />"
+          : GLYPH[a.id];
+        return "<div class='app-card planned reveal' style='--c1:" + a.c1 + ";--c2:" + a.c2 + "'>" +
+          "<div class='app-top'><div class='app-icon" + (a.icon ? "" : " glyph") + "'>" + iconHtml + "</div>" +
+          "<div><div class='app-name'>" + a.name + "</div><div class='app-tag'>" + info.tag + "</div></div></div>" +
+          "<div class='app-desc'>" + info.desc + "</div>" +
+          "<div class='stores'>" + badgeSoon(pSoon) + "</div></div>";
+      }).join("");
 
       observeReveals();
     }
