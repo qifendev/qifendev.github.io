@@ -38,6 +38,7 @@
       --shadow: 0 30px 80px -30px rgba(0,0,0,0.8);
       --maxw: 1120px;
       --gutter: 24px;
+      --glow-size: 620px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,9 +56,7 @@
     }
 
     /* ---------- ambient background ---------- */
-    /* Just the gradient — no orbs, no radial washes. The apps ship exactly
-       this wash (a single linear fill, nothing layered), so the site should
-       not be the one place with a different background. */
+    /* One gradient + four corner glows — the same wash the apps ship. */
     .bg {
       position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
       background: var(--bg);
@@ -66,6 +65,35 @@
       content: ''; position: absolute; inset: 0;
       background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size: 3px 3px; opacity: 0.6;
+    }
+    /* Round dots in each corner, ~40% of the circle off-canvas. The alpha
+       ladder (0.64 / 0.36 / 0.16 / 0.04 of the centre value at each 20% step)
+       is a quadratic falloff, matching SeaGlassBackground's texture — a linear
+       cone would read as a hard-edged spotlight instead of a bloom. */
+    .glow { position: absolute; width: var(--glow-size); height: var(--glow-size); border-radius: 50%; pointer-events: none; }
+    .g1 {
+      top: calc(var(--glow-size) * -0.41); left: calc(var(--glow-size) * -0.41);
+      background: radial-gradient(circle closest-side,
+        rgba(46,216,192,.42) 0%, rgba(46,216,192,.27) 20%, rgba(46,216,192,.15) 40%,
+        rgba(46,216,192,.07) 60%, rgba(46,216,192,.02) 80%, rgba(46,216,192,0) 100%);
+    }
+    .g2 {
+      top: calc(var(--glow-size) * -0.34); right: calc(var(--glow-size) * -0.41);
+      background: radial-gradient(circle closest-side,
+        rgba(106,104,240,.34) 0%, rgba(106,104,240,.22) 20%, rgba(106,104,240,.12) 40%,
+        rgba(106,104,240,.05) 60%, rgba(106,104,240,.01) 80%, rgba(106,104,240,0) 100%);
+    }
+    .g3 {
+      bottom: calc(var(--glow-size) * -0.34); left: calc(var(--glow-size) * -0.44);
+      background: radial-gradient(circle closest-side,
+        rgba(46,216,192,.34) 0%, rgba(46,216,192,.22) 20%, rgba(46,216,192,.12) 40%,
+        rgba(46,216,192,.05) 60%, rgba(46,216,192,.01) 80%, rgba(46,216,192,0) 100%);
+    }
+    .g4 {
+      bottom: calc(var(--glow-size) * -0.31); right: calc(var(--glow-size) * -0.41);
+      background: radial-gradient(circle closest-side,
+        rgba(176,106,248,.26) 0%, rgba(176,106,248,.17) 20%, rgba(176,106,248,.09) 40%,
+        rgba(176,106,248,.04) 60%, rgba(176,106,248,.01) 80%, rgba(176,106,248,0) 100%);
     }
 
     .wrap { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
@@ -226,7 +254,7 @@
     .reveal.in { opacity: 1; transform: none; }
 
     @media (max-width: 760px) {
-      :root { --gutter: 18px; }
+      :root { --gutter: 18px; --glow-size: 340px; }
       .grid { grid-template-columns: 1fr; }
       .nav-links a { display: none; }
       .hero { padding-top: 56px; padding-bottom: 40px; }
@@ -263,6 +291,19 @@
         -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
       }
       .bg::after { background-image: radial-gradient(rgba(13,20,36,0.045) 1px, transparent 1px); }
+      /* Light glows: brighter dots, warmer pair (violet → apricot). */
+      .g1 { background: radial-gradient(circle closest-side,
+        rgba(46,216,192,.45) 0%, rgba(46,216,192,.29) 20%, rgba(46,216,192,.16) 40%,
+        rgba(46,216,192,.07) 60%, rgba(46,216,192,.02) 80%, rgba(46,216,192,0) 100%); }
+      .g2 { background: radial-gradient(circle closest-side,
+        rgba(155,124,255,.34) 0%, rgba(155,124,255,.22) 20%, rgba(155,124,255,.12) 40%,
+        rgba(155,124,255,.05) 60%, rgba(155,124,255,.01) 80%, rgba(155,124,255,0) 100%); }
+      .g3 { background: radial-gradient(circle closest-side,
+        rgba(110,210,255,.34) 0%, rgba(110,210,255,.22) 20%, rgba(110,210,255,.12) 40%,
+        rgba(110,210,255,.05) 60%, rgba(110,210,255,.01) 80%, rgba(110,210,255,0) 100%); }
+      .g4 { background: radial-gradient(circle closest-side,
+        rgba(255,194,160,.45) 0%, rgba(255,194,160,.29) 20%, rgba(255,194,160,.16) 40%,
+        rgba(255,194,160,.07) 60%, rgba(255,194,160,.02) 80%, rgba(255,194,160,0) 100%); }
       .app-tag { color: color-mix(in srgb, var(--c2) 62%, #0d1424); }
       .lang-panel { background: rgba(255,255,255,0.92); border-color: rgba(15,23,42,0.12); }
       .lang-opt { color: var(--muted); }
@@ -271,7 +312,12 @@
   </style>
 </head>
 <body>
-  <div class="bg"></div>
+  <div class="bg">
+    <span class="glow g1"></span>
+    <span class="glow g2"></span>
+    <span class="glow g3"></span>
+    <span class="glow g4"></span>
+  </div>
 
   <nav class="wrap">
     <div class="brand"><span class="dot">Q</span><span>qifen</span></div>
