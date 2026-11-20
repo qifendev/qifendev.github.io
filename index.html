@@ -383,6 +383,12 @@
     <span data-i18n="footer">© 2026 qifen · Made with care</span>
   </footer>
 
+  <!-- Firebase Analytics for this static site: pure JS, zero dependencies.
+       Config lives in firebase-config.js (set measurementId to start sending),
+       event catalogue in ANALYTICS_EVENTS.md. -->
+  <script src="firebase-config.js"></script>
+  <script src="analytics.js" defer></script>
+
   <script>
     /* ---------- content (10 languages) ---------- */
     const I18N = {
